@@ -20,7 +20,9 @@ M.plugins = {
   'plugins.navic',
   'plugins.comment',
   'plugins.autopairs',
-  'plugins.indent-blankline'
+  'plugins.indent-blankline',
+
+  'plugins.heirline',
 }
 
 function M.setup()
