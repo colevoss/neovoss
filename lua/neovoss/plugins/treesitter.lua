@@ -12,6 +12,7 @@ function M.setup()
     context_commentstring = {
       enable = true
     },
+    auto_install = true,
     ignore_install = {},
     ensure_installed = {
       "lua",

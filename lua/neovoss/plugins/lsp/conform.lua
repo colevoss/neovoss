@@ -1,5 +1,10 @@
 local M = {}
 
+local js_formatters = {
+  { "prettierd", "prettier" },
+  { "eslint_d",  "eslint" },
+}
+
 function M.setup()
   local conform_ok, conform = pcall(require, 'conform')
 
@@ -10,10 +15,10 @@ function M.setup()
 
   conform.setup({
     formatters_by_ft = {
-      javascript = { "prettierd" },
-      javascriptreact = { "prettierd" },
-      typescript = { 'prettierd' },
-      typescriptreact = { 'prettierd' },
+      javascript = js_formatters,
+      javascriptreact = js_formatters,
+      typescript = js_formatters,
+      typescriptreact = js_formatters,
     },
 
     format_on_save = {
