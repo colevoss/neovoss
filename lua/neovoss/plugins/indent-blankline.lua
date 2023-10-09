@@ -1,7 +1,12 @@
 local M = {}
 
 local highlight = {
-  "Whitespace",
+  "IndentBlanklineIndent1",
+  "IndentBlanklineIndent2",
+  "IndentBlanklineIndent3",
+  "IndentBlanklineIndent4",
+  "IndentBlanklineIndent5",
+  "IndentBlanklineIndent6",
 }
 
 function M.setup()
@@ -13,17 +18,14 @@ function M.setup()
   end
 
   vim.opt.list = true
-  vim.opt.listchars:append "space:⋅"
-  -- vim.opt.listchars:append "tab:-"
-  vim.opt.listchars:append "eol:↴"
 
   blankline.setup {
     indent = {
-      highlight = highlight,
-      char = ""
+      tab_char = ""
+      -- highlight = highlight,
     },
     whitespace = {
-      highlight = highlight,
+      -- highlight = highlight,
       remove_blankline_trail = false,
     },
     scope = {

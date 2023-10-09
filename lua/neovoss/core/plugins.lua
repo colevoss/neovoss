@@ -98,13 +98,6 @@ return packer.startup(function(use)
     }
   }
 
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
-
   -- ==============================================
   -- UI/UX Features
   -- ==============================================
@@ -184,6 +177,10 @@ return packer.startup(function(use)
   -- Maybe move this to a user's plugins
   use {
     "fladson/vim-kitty"
+  }
+
+  use {
+    "stevearc/conform.nvim"
   }
 
   if packer_bootstrap then

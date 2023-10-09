@@ -5,7 +5,7 @@ local M = {}
 M.load = {
   'plugins.lsp.config',
   'plugins.lsp.mason',
-  'plugins.lsp.null-ls',
+  'plugins.lsp.conform',
 }
 
 function M.setup()

@@ -24,6 +24,7 @@ local LspActive = {
 
       local current_buff = vim.api.nvim_get_current_buf()
       for _, client in pairs(vim.lsp.get_active_clients({ bufnr = current_buff })) do
+        print(vim.inspect(client.name))
         if client.name ~= 'null-ls' then
           table.insert(names, client.name)
         else
@@ -39,7 +40,7 @@ local LspActive = {
         end
       end
 
-      return "ﯶ " .. table.concat(names, ", ") .. " "
+      return "󰛸 " .. table.concat(names, ", ") .. " "
     end,
     hl = {
       fg = colors.purple,
