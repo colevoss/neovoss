@@ -1,5 +1,7 @@
 require('neovoss.core.plugins')
 
+local plugs = require('neovoss.new_plugs')
+
 local utils = require('neovoss.core.utils')
 
 local load = {
@@ -7,7 +9,9 @@ local load = {
   'core.mappings',
   'core.auto-commands',
 
-  'plugins'
+  -- 'plugins'
+  -- 'new_plugs'
 }
 
 utils.load_config(load)
+plugs.setup()
