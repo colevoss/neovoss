@@ -17,7 +17,7 @@ function M.setup()
     defaults = {
       hidden = true,
       prompt_prefix = " ",
-      selection_caret = "契",
+      selection_caret = "",
       path_display = { "smart" },
       file_ignore_patterns = {
         "^.git/",

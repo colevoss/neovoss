@@ -32,15 +32,15 @@ function M.setup()
         nowait = true,
       },
       mappings = {
-        ["e"] = function()
-          vim.api.nvim_exec(explorer_focus_cmd, true)
-        end,
-        ["b"] = function()
-          vim.api.nvim_exec(buffer_focus_cmd, true)
-        end,
-        ["g"] = function()
-          vim.api.nvim_exec(git_focus_cmd, true)
-        end,
+        -- ["e"] = function()
+        --   vim.api.nvim_exec(explorer_focus_cmd, true)
+        -- end,
+        -- ["b"] = function()
+        --   vim.api.nvim_exec(buffer_focus_cmd, true)
+        -- end,
+        -- ["g"] = function()
+        --   vim.api.nvim_exec(git_focus_cmd, true)
+        -- end,
         ["<CR>"] = "open",
         ["<esc>"] = "revert_preview",
         ["P"] = { "toggle_preview", config = { use_float = true } },

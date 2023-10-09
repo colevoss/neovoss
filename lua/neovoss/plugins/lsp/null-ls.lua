@@ -13,8 +13,8 @@ function M.setup()
   local codeactions = null_ls.builtins.code_actions
 
   local sources = {
-    codeactions.eslint_d,
-    diagnostics.eslint_d,
+    -- codeactions.eslint_d,
+    -- diagnostics.eslint_d,
     formatting.prettierd,
   }
 

@@ -1,7 +1,11 @@
 local M = {}
 
+local highlight = {
+  "Whitespace",
+}
+
 function M.setup()
-  local status_ok, blankline = pcall(require, "indent_blankline")
+  local status_ok, blankline = pcall(require, "ibl")
 
   if not status_ok then
     vim.notify("Could not load blankline")
@@ -10,14 +14,22 @@ function M.setup()
 
   vim.opt.list = true
   vim.opt.listchars:append "space:⋅"
+  -- vim.opt.listchars:append "tab:-"
   vim.opt.listchars:append "eol:↴"
 
   blankline.setup {
-    show_end_of_line = true,
-    show_trailing_blankline_indent = false,
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
+    indent = {
+      highlight = highlight,
+      char = ""
+    },
+    whitespace = {
+      highlight = highlight,
+      remove_blankline_trail = false,
+    },
+    scope = {
+      enabled = true,
+      highlight = highlight
+    },
   }
 end
 

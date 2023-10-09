@@ -12,6 +12,7 @@ function M.setup()
     context_commentstring = {
       enable = true
     },
+    ignore_install = {},
     ensure_installed = {
       "lua",
       "help",
@@ -22,6 +23,7 @@ function M.setup()
       "gitignore",
 
       "typescript",
+      "javascript",
       "tsx",
       "html",
       "graphql",
@@ -34,9 +36,14 @@ function M.setup()
       "go",
       "rust",
       "python",
+      "ruby",
+      "cpp",
 
       "dockerfile",
       "terraform",
+
+      "glsl",
+      "wgsl",
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
