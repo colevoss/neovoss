@@ -10,16 +10,22 @@ function M.setup()
     return
   end
 
-  local explorer_focus_cmd = "Neotree focus filesystem right"
-  local buffer_focus_cmd = "Neotree focus buffers right"
-  local git_focus_cmd = "Neotree focus git_status right"
-
   neotree.setup({
     source_selector = {
       winbar = true,
     },
-    close_if_last_window = true,
+
+    sources = {
+      "filesystem",
+      "buffers",
+      "git_status",
+      "document_symbols",
+    },
+
+    close_if_last_window = true, -- Close neo-tree if it is the last window left in the tab
+
     popup_border_style = "rounded",
+
     enable_git_status = true,
     enable_diagnostics = true,
     sort_case_insensitive = true,
@@ -27,10 +33,12 @@ function M.setup()
     window = {
       position = "right",
       width = 40,
+
       mapping_options = {
         noremap = true,
         nowait = true,
       },
+
       mappings = {
         -- ["e"] = function()
         --   vim.api.nvim_exec(explorer_focus_cmd, true)
@@ -94,6 +102,9 @@ function M.setup()
         enabled = true,
         leave_dirs_open = true,
       },
+
+      group_empty_dirs = false,
+
       -- hijack_netrw_behavior = "open_default",
       hijack_netrw_behavior = "open_current",
 
@@ -117,6 +128,22 @@ function M.setup()
           position = "float",
           mappings = {
             ["bd"] = "buffer_delete",
+          }
+        }
+      },
+
+      document_symbols = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = true,
+        },
+
+        show_unloaded = true,
+
+        window = {
+          position = "float",
+          mappings = {
+            ["l"] = "expand_all_nodes"
           }
         }
       },
@@ -158,10 +185,25 @@ function M.setup()
     }
   })
 
-  nmap('<leader>ee', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
-  nmap('\\', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
-  nmap('<leader>eb', ":Neotree reveal=true source=buffers<CR>", 'Toggle Nvim Tree', true)
-  nmap('<leader>eg', ":Neotree reveal=true source=git_status<CR>", 'Toggle Nvim Tree', true)
+  -- Filesystem
+  -- nmap('<leader>ee', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
+  -- nmap('\\', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
+
+  nmap('<leader>ee', ":Neotree filesystem reveal right<CR>", 'Toggle Nvim Tree', true)
+  nmap('\\', ":Neotree filesystem reveal float<CR>", 'Toggle Nvim Tree', true)
+
+  -- Buffers
+  -- nmap('<leader>eb', ":Neotree reveal=true source=buffers<CR>", 'Toggle Nvim Tree', true)
+  nmap('<leader>eb', ":Neotree buffers reveal float<CR>", 'Toggle Nvim Tree', true)
+
+  -- Git
+  -- nmap('<leader>eg', ":Neotree reveal=true source=git_status<CR>", 'Toggle Nvim Tree', true)
+  nmap('<leader>eg', ":Neotree git_status reveal right<CR>", 'Toggle Nvim Tree', true)
+
+  -- Symbols
+  nmap('<leader>ed', ":Neotree document_symbols reveal right<CR>", 'Toggle Nvim Tree', true)
+
+  -- Close
   nmap('<leader>ec', ":Neotree close<CR>", 'Toggle Nvim Tree', true)
 end
 
