@@ -90,11 +90,15 @@ function M.setup()
         },
       },
 
-      follow_current_file = true,
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = true,
+      },
       -- hijack_netrw_behavior = "open_default",
       hijack_netrw_behavior = "open_current",
 
       window = {
+        position = "right",
         mappings = {
           ["/"] = "fuzzy_finder",
           ["<c-x>"] = "clear_filter"
@@ -102,11 +106,15 @@ function M.setup()
       },
 
       buffers = {
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = true,
+        },
 
         show_unloaded = true,
 
         window = {
+          position = "float",
           mappings = {
             ["bd"] = "buffer_delete",
           }
@@ -151,6 +159,7 @@ function M.setup()
   })
 
   nmap('<leader>ee', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
+  nmap('\\', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
   nmap('<leader>eb', ":Neotree reveal=true source=buffers<CR>", 'Toggle Nvim Tree', true)
   nmap('<leader>eg', ":Neotree reveal=true source=git_status<CR>", 'Toggle Nvim Tree', true)
   nmap('<leader>ec', ":Neotree close<CR>", 'Toggle Nvim Tree', true)

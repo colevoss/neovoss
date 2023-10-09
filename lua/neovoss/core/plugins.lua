@@ -105,7 +105,7 @@ return packer.startup(function(use)
   -- Neotree
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -116,7 +116,7 @@ return packer.startup(function(use)
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    tag = '0.1.3',
     requires = {
       'nvim-lua/plenary.nvim'
     }
