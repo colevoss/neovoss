@@ -31,7 +31,8 @@ function M.setup()
     sort_case_insensitive = true,
 
     window = {
-      position = "right",
+      -- position = "right",
+      position = "float",
       width = 40,
 
       mapping_options = {
@@ -109,7 +110,8 @@ function M.setup()
       hijack_netrw_behavior = "open_current",
 
       window = {
-        position = "right",
+        -- position = "right",
+        position = "float",
         mappings = {
           ["/"] = "fuzzy_finder",
           ["<c-x>"] = "clear_filter"
@@ -190,6 +192,7 @@ function M.setup()
   -- nmap('\\', ":Neotree reveal=true source=filesystem<CR>", 'Toggle Nvim Tree', true)
 
   nmap('<leader>ee', ":Neotree filesystem reveal right<CR>", 'Toggle Nvim Tree', true)
+  -- nmap('<leader>ee', ":Neotree filesystem reveal float<CR>", 'Toggle Nvim Tree', true)
   nmap('\\', ":Neotree filesystem reveal float<CR>", 'Toggle Nvim Tree', true)
 
   -- Buffers
@@ -202,6 +205,7 @@ function M.setup()
 
   -- Symbols
   nmap('<leader>ed', ":Neotree document_symbols reveal right<CR>", 'Toggle Nvim Tree', true)
+  -- nmap('<leader>ed', ":Neotree document_symbols reveal float<CR>", 'Toggle Nvim Tree', true)
 
   -- Close
   nmap('<leader>ec', ":Neotree close<CR>", 'Toggle Nvim Tree', true)

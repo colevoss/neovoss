@@ -54,7 +54,7 @@ function M.setup()
   -- vim.opt.colorcolumn = '80'
   vim.opt.signcolumn = "yes"
 
-  vim.opt.spell = true
+  -- vim.opt.spell = true
 
   vim.g.linespace = 10
 

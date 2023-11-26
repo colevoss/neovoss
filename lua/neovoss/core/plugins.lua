@@ -58,6 +58,7 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'nvim-treesitter/playground',
+      'vrischmann/tree-sitter-templ'
     },
     -- TODO: Run this in treesitter config file
     run = function()
