@@ -24,9 +24,15 @@ function M.setup()
         "node_modules",
       },
       mappings = {
-        i = {
-          ["<esc>"] = actions.close,
+        n = {
           ["<c-t>"] = trouble.open_with_trouble,
+          ['<c-d>'] = actions.delete_buffer
+        },
+        i = {
+          -- ["<esc>"] = actions.close,
+          ['<C-u>'] = false,
+          ["<c-t>"] = trouble.open_with_trouble,
+          ['<c-d>'] = actions.delete_buffer
         }
       }
     },
@@ -74,6 +80,10 @@ function M.setup()
       themes.get_ivy()
     )
   end
+
+  -- Show files in current directory
+  vim.keymap.set('n', '<leader>.', function() builtin.find_files({ cwd = vim.fn.expand('%:p:h') }) end)
+
 
   -- nmap("<leader>?", builtin.oldfiles, "Telescope: Recently Opened Files", true)
   -- nmap("<leader>ft", project_files, "Telescope: Find files", true)
