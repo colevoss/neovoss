@@ -52,6 +52,7 @@ M.setup = function()
   map.vmap(">", ">gv", "Indent right", true)
 
   map.keymap("x", "<leader>p", "\"_dp")
+  map.keymap("n", "<C-f>", "<cmd>silent !tmux neww sessionizer<CR>")
 end
 
 return M
