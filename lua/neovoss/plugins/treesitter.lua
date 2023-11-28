@@ -16,7 +16,6 @@ function M.setup()
     ignore_install = {},
     ensure_installed = {
       "lua",
-      "help",
       "bash",
       "markdown",
 
