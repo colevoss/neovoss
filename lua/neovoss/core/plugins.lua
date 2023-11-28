@@ -46,8 +46,8 @@ return packer.startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- Theme
-  -- use { 'colevoss/nvimpire' }
-  use '~/codes/neovim/nvimpire'
+  use { 'colevoss/nvimpire' }
+  -- use '~/codes/neovim/nvimpire'
 
   -- ==============================================
   -- LSP and Language Features
