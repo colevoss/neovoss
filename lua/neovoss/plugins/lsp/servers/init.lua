@@ -6,6 +6,7 @@ local gopls = require('neovoss.plugins.lsp.servers.gopls')
 local bashls = require('neovoss.plugins.lsp.servers.bashls')
 local dockerls = require('neovoss.plugins.lsp.servers.dockerls')
 local astro = require('neovoss.plugins.lsp.servers.astro')
+local pyright = require('neovoss.plugins.lsp.servers.pyright')
 
 local servers = {
   lua_ls = lua_ls,
@@ -15,6 +16,7 @@ local servers = {
   bashls = bashls,
   dockerls = dockerls,
   astro = astro,
+  pyright = pyright
 }
 
 return servers
