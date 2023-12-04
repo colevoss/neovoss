@@ -19,6 +19,7 @@ function M.setup()
       javascriptreact = js_formatters,
       typescript = js_formatters,
       typescriptreact = js_formatters,
+      graphql = js_formatters,
     },
 
     format_on_save = {
