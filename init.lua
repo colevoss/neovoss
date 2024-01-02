@@ -1,13 +1,16 @@
-require('neovoss.core.plugins')
+-- require('neovoss.core.plugins')
 
-local utils = require('neovoss.core.utils')
+-- local utils = require('neovoss.core.utils')
 
-local load = {
-  'core.options',
-  'core.mappings',
-  'core.auto-commands',
+-- local load = {
+--   'core.options',
+--   'core.mappings',
+--   'core.auto-commands',
 
-  'plugins'
-}
+--   'plugins'
+-- }
 
-utils.load_config(load)
+-- utils.load_config(load)
+
+require('neovoss.core').setup {}
+require('neovoss.plugins').setup {}

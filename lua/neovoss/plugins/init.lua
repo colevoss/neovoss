@@ -1,32 +1,19 @@
-local utils = require('neovoss.core.utils')
+local utils = require('neovoss.plugins.utils')
+local plugin = utils.plugin
 
 local M = {}
 
-M.plugins = {
-  'plugins.icons',
-  'plugins.colorscheme',
+M.setup = function()
+  utils.initLazy()
 
-  -- LSP/Langage Features
-  'plugins.lsp',
-  'plugins.cmp',
-
-  -- UI
-  'plugins.treesitter',
-  'plugins.telescope',
-  'plugins.trouble',
-  'plugins.gitsigns',
-  'plugins.neotree',
-  'plugins.illuminate',
-  'plugins.navic',
-  'plugins.comment',
-  'plugins.autopairs',
-  'plugins.indent-blankline',
-
-  'plugins.heirline',
-}
-
-function M.setup()
-  utils.load_config(M.plugins)
+  require('lazy').setup({
+    plugin('nvimpire'),
+    plugin('telescope'),
+    plugin('treesitter'),
+    plugin('autopairs'),
+    plugin('indent-blankline'),
+    plugin('gitsigns'),
+  })
 end
 
 return M

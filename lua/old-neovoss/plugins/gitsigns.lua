@@ -1,7 +1,13 @@
-local M = { 'lewis6991/gitsigns.nvim' }
+local M = {}
 
-M.config = function()
-  local gitsigns = require('gitsigns')
+function M.setup()
+  local status_ok, gitsigns = pcall(require, "gitsigns")
+
+  if not status_ok then
+    vim.notify("Could not load gitsigns")
+    return
+  end
+
   gitsigns.setup {
     signs                        = {
       add          = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },

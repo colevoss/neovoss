@@ -1,7 +1,13 @@
-local M = { 'windwp/nvim-autopairs' }
+local M = {}
 
-M.config = function()
-  local autopairs = require('nvim-autopairs')
+function M.setup()
+  local status_ok, autopairs = pcall(require, "nvim-autopairs")
+
+  if not status_ok then
+    vim.notify("Could not load nvim-autopairs")
+    return
+  end
+
   local Rule = require("nvim-autopairs.rule")
 
   autopairs.setup {

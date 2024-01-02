@@ -1,4 +1,4 @@
-local M = { 'lukas-reineke/indent-blankline.nvim' }
+local M = {}
 
 local highlight = {
   "IndentBlanklineIndent1",
@@ -9,10 +9,17 @@ local highlight = {
   "IndentBlanklineIndent6",
 }
 
-M.config = function()
+function M.setup()
+  local status_ok, blankline = pcall(require, "ibl")
+
+  if not status_ok then
+    vim.notify("Could not load blankline")
+    return
+  end
+
   vim.opt.list = true
 
-  require('ibl').setup {
+  blankline.setup {
     indent = {
       tab_char = ""
       -- highlight = highlight,
@@ -23,7 +30,7 @@ M.config = function()
     },
     scope = {
       enabled = true,
-      -- highlight = highlight
+      highlight = highlight
     },
   }
 end

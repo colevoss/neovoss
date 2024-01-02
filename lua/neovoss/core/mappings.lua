@@ -1,58 +1,42 @@
-local map = require('neovoss.core.utils')
-
 local M = {}
 
 M.setup = function()
-  -- Remap leader
-  map.keymap("", "<Space>", "<Nop>", {
+  -- Leader space
+  vim.keymap.set("", "<Space>", "<Nop>", {
     silent = true,
-    desc = "Space as leader"
   })
-
   vim.g.mapleader = " "
   vim.g.maplocalleader = " "
 
-  -- ==============================================
-  -- Normal Mappings
-  -- ==============================================
+  -- Colon shortcut
+  vim.keymap.set("n", ";", ":", {
+    silent = false
+  })
 
-  -- Colon Shortcut
-  map.nmap(";", ":", "Colon works as semicolon", false)
-  map.nmap(":", ";", "Semicolon works as colon", false)
+  vim.keymap.set("n", ";", ":", {
+    silent = false
+  })
 
-  -- Save Shortcut
-  map.nmap("<leader>w", ":w<CR>", "Leader + W save shortcut", false)
+  vim.keymap.set("n", "<leader>w", ":w<CR>", {
+    silent = false,
+    desc = "Leader + w save shortcut"
+  })
 
-  -- Better window navigation
-  map.nmap("<C-h>", "<C-w>h", "<C-h> to navigate to left pane", true)
-  map.nmap("<C-j>", "<C-w>j", "<C-j> to navigate to down pane", true)
-  map.nmap("<C-k>", "<C-w>k", "<C-k> to navigate to up pane", true)
-  map.nmap("<C-l>", "<C-w>l", "<C-l> to navigate to right pane", true)
+  vim.keymap.set("n", "<C-h>", "<C-w>h")
+  vim.keymap.set("n", "<C-j>", "<C-w>j")
+  vim.keymap.set("n", "<C-k>", "<C-w>k")
+  vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-  -- In buffer nav
-  map.nmap("<C-d>", "<C-d>zz", "Navigate down and center", true)
-  map.nmap("<C-u>", "<C-u>zz", "Navigate up and center", true)
+  vim.keymap.set("n", "<C-d>", "<C-d>zz")
+  vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-  -- Previous and next buffers
-  map.nmap("<C-p>", ":bprevious<CR>", "Go to previous buffer", true)
-  map.nmap("<C-n>", ":bnext<CR>", "Go to next buffer", true)
+  vim.keymap.set("n", "<C-p>", ":bprevious<CR>")
+  vim.keymap.set("n", "<C-n>", ":bnext<CR>")
 
-  -- Better full line yank
-  map.nmap("<S-y>", "<S-v>y", "Better full line yank", true)
+  vim.keymap.set("n", "<S-y>", "<S-v>y")
 
-  -- Move to start or end of line
-  map.nmap("<C-e>", "$", "Move to start or end of line", true)
-
-  -- ==============================================
-  -- Visual Mappings
-  -- ==============================================
-
-  -- Stay in indent mode
-  map.vmap("<", "<gv", "Indent left", true)
-  map.vmap(">", ">gv", "Indent right", true)
-
-  map.keymap("x", "<leader>p", "\"_dp")
-  map.keymap("n", "<C-f>", "<cmd>silent !tmux neww sessionizer<CR>")
+  vim.keymap.set("v", "<", "<gv")
+  vim.keymap.set("v", ">", ">gv")
 end
 
 return M
