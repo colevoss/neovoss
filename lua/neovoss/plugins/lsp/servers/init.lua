@@ -7,6 +7,8 @@ local bashls = require('neovoss.plugins.lsp.servers.bashls')
 local dockerls = require('neovoss.plugins.lsp.servers.dockerls')
 local astro = require('neovoss.plugins.lsp.servers.astro')
 local pyright = require('neovoss.plugins.lsp.servers.pyright')
+local tailwindcss = require('neovoss.plugins.lsp.servers.tailwind')
+local templ = require('neovoss.plugins.lsp.servers.templ')
 
 local servers = {
   lua_ls = lua_ls,
@@ -16,7 +18,9 @@ local servers = {
   bashls = bashls,
   dockerls = dockerls,
   astro = astro,
-  pyright = pyright
+  pyright = pyright,
+  tailwindcss = tailwindcss,
+  templ = templ
 }
 
 return servers

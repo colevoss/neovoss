@@ -1,3 +1,4 @@
+local utils = require('neovoss.core.utils')
 local servers = require('neovoss.plugins.lsp.servers')
 local M = {}
 
@@ -150,11 +151,17 @@ function M.setup()
 
   mason_lspconfig.setup_handlers {
     function(server_name)
-      lspconfig[server_name].setup {
-        capabilities = capabilities,
-        on_attach = M.on_attach,
-        settings = servers[server_name],
-      }
+      local server_config = servers[server_name]
+
+      lspconfig[server_name].setup(
+        utils.merge(
+          {
+            capabilities = capabilities,
+            on_attach = M.on_attach
+          },
+          server_config
+        )
+      )
     end
   }
 

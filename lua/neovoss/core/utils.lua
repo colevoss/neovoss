@@ -30,4 +30,16 @@ function M.load_config(configs)
   end
 end
 
+function M.merge(t1, t2)
+  if not t2 then
+    return t1
+  end
+
+  for k, v in ipairs(t2) do
+    t1[k] = v
+  end
+
+  return t1
+end
+
 return M
