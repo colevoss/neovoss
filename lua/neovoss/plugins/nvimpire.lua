@@ -2,6 +2,9 @@ local M = {
   'colevoss/nvimpire'
 }
 
+M.lazy = false
+M.priority = 1000
+
 M.config = function()
   local nvimpire = require('nvimpire')
 

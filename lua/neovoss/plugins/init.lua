@@ -1,5 +1,5 @@
 local utils = require('neovoss.plugins.utils')
-local plugin = utils.plugin
+-- local plugin = utils.plugin
 
 local M = {}
 
@@ -7,12 +7,17 @@ M.setup = function()
   utils.initLazy()
 
   require('lazy').setup({
-    plugin('nvimpire'),
-    plugin('telescope'),
-    plugin('treesitter'),
-    plugin('autopairs'),
-    plugin('indent-blankline'),
-    plugin('gitsigns'),
+    require('neovoss.plugins.nvimpire'),
+    require('neovoss.plugins.telescope_config'),
+    require('neovoss.plugins.treesitter'),
+    require('neovoss.plugins.autopairs'),
+    require('neovoss.plugins.indent-blankline'),
+    require('neovoss.plugins.gitsigns'),
+    require('neovoss.plugins.navic'),
+    require('neovoss.plugins.lsp'),
+    require('neovoss.plugins.fidget'),
+    require('neovoss.plugins.comment'),
+    require('neovoss.plugins.trouble')
   })
 end
 

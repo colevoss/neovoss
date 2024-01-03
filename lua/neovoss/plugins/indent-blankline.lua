@@ -23,7 +23,7 @@ M.config = function()
     },
     scope = {
       enabled = true,
-      -- highlight = highlight
+      highlight = highlight
     },
   }
 end
