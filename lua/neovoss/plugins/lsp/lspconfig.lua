@@ -6,26 +6,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-M.setup = function()
-  local lspconfig = require('lspconfig')
-
-  lspconfig.lua_ls.setup {
-    on_attach = on_attach,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = {
-            'vim',
-            'require',
-          }
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true)
-        }
-      }
-    }
-  }
-
+local keybinds = function()
   vim.keymap.set('n', '<leader>gl', vim.diagnostic.open_float)
 
   vim.api.nvim_create_autocmd('LspAttach', {
@@ -50,6 +31,42 @@ M.setup = function()
       end, opts)
     end
   })
+end
+
+local setup_servers = function()
+  local lspconfig = require('lspconfig')
+  local mason_lspconfig = require("mason-lspconfig")
+  local utils = require('neovoss.core.utils')
+  local servers = require('neovoss.plugins.lsp.servers')
+
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+  mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers)
+  }
+
+  local base = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+
+  mason_lspconfig.setup_handlers {
+    function(server_name)
+      lspconfig[server_name].setup(utils.merge(
+        base,
+        servers[server_name]
+      ))
+    end
+  }
+end
+
+M.setup = function()
+  setup_servers()
+  keybinds()
 end
 
 return M
