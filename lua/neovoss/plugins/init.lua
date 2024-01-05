@@ -18,7 +18,9 @@ M.setup = function()
     require('neovoss.plugins.fidget'),
     require('neovoss.plugins.comment'),
     require('neovoss.plugins.trouble'),
-    require('neovoss.plugins.cmp_config')
+    require('neovoss.plugins.cmp_config'),
+    require('neovoss.plugins.heirline'),
+    require('neovoss.plugins.conform')
   })
 end
 

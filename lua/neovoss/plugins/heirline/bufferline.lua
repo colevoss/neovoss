@@ -19,7 +19,9 @@ local Right = {
   condition = function(self)
     return self.is_active
   end,
+
   provider = helpers.RightBubbleChar,
+
   hl = function(self)
     return {
       bg = self.none,
@@ -32,7 +34,6 @@ local FileTag = {
   init = function(self)
     self.modified = vim.api.nvim_buf_get_option(self.bufnr, "modified") or false
   end,
-
   provider = function(self)
     return self.modified and ' ' or ' '
   end
@@ -44,7 +45,6 @@ local FileIcon = {
     local extension = vim.fn.fnamemodify(filename, ":e")
     self.icon, self.icon_color = require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
   end,
-
   provider = function(self)
     return self.icon and (self.icon .. " ")
   end,

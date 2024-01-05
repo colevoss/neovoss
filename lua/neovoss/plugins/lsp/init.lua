@@ -12,6 +12,7 @@ M.lazy = false
 M.config = function()
   require('mason').setup()
   require('neovoss.plugins.lsp.lspconfig').setup()
+  require('neovoss.plugins.lsp.styles').setup()
 end
 
 return M
