@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   utils.initLazy()
-  
+
   require('lazy').setup({
     require('neovoss.plugins.nvimpire'),
     require('neovoss.plugins.telescope_config'),
@@ -21,7 +21,9 @@ M.setup = function()
     require('neovoss.plugins.cmp_config'),
     require('neovoss.plugins.heirline'),
     require('neovoss.plugins.conform'),
-    require('neovoss.plugins.illuminate')
+    require('neovoss.plugins.illuminate'),
+    require('neovoss.plugins.colorizer'),
+    require('neovoss.plugins.tailwind-colors'),
   })
 end
 

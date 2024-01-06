@@ -34,16 +34,11 @@ local function keybinds()
   })
 end
 
-local setup_servers = function()
+local function setup_servers()
   local lspconfig = require('lspconfig')
   local mason_lspconfig = require("mason-lspconfig")
   local utils = require('neovoss.core.utils')
   local servers = require('neovoss.plugins.lsp.servers')
-
-  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-  -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   mason_lspconfig.setup {
@@ -57,13 +52,24 @@ local setup_servers = function()
 
   mason_lspconfig.setup_handlers {
     function(server_name)
-      lspconfig[server_name].setup(utils.merge(
-        base,
-        servers[server_name]
-      ))
+      local server_config = servers[server_name]
+      local config_type = type(server_config)
+
+      if config_type == "table" then
+        lspconfig[server_name].setup(utils.merge(
+          base,
+          servers[server_name]
+        ))
+      elseif config_type == "function" then
+        lspconfig[server_name].setup(server_config(base))
+      else
+        lspconfig[server_name].setup(base)
+      end
     end
   }
 end
+
+print(type(setup_servers))
 
 M.setup = function()
   setup_servers()
