@@ -12,5 +12,5 @@
 
 -- utils.load_config(load)
 
-require('neovoss.core').setup {}
-require('neovoss.plugins').setup {}
+require('neovoss.core').setup()
+require('neovoss.plugins').setup()

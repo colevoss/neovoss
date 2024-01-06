@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   utils.initLazy()
-
+  
   require('lazy').setup({
     require('neovoss.plugins.nvimpire'),
     require('neovoss.plugins.telescope_config'),
