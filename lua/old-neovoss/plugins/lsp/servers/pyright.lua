@@ -1,3 +1,0 @@
-local pyright = {}
-
-return pyright
