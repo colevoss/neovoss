@@ -5,7 +5,7 @@ M.build = function()
 end
 
 M.config = function()
-  require('nvim-treesitter.configs').setup{
+  require('nvim-treesitter.configs').setup {
     -- context_commentstring = {
     --   enable = true
     -- },
@@ -35,7 +35,7 @@ M.config = function()
       "python",
       "ruby",
       "cpp",
-      -- "templ",
+      "templ",
 
       "dockerfile",
       "terraform",
