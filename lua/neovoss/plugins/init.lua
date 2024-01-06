@@ -20,7 +20,8 @@ M.setup = function()
     require('neovoss.plugins.trouble'),
     require('neovoss.plugins.cmp_config'),
     require('neovoss.plugins.heirline'),
-    require('neovoss.plugins.conform')
+    require('neovoss.plugins.conform'),
+    require('neovoss.plugins.illuminate')
   })
 end
 
