@@ -8,7 +8,8 @@ local M = {
     'hrsh7th/cmp-nvim-lsp',
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
-    'onsails/lspkind.nvim'
+    'onsails/lspkind.nvim',
+    'rafamadriz/friendly-snippets'
   }
 }
 
@@ -49,9 +50,7 @@ local kind_icons = {
 M.config = function()
   local cmp = require('cmp')
   local luasnip = require('luasnip')
-
-  -- TODO: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#add-parentheses-after-selecting-function-or-method-item
-  -- TODO: https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques#add-parentheses-after-selecting-function-or-method-item
+  require("luasnip.loaders.from_vscode").lazy_load()
 
   cmp.setup({
     snippet = {
@@ -65,8 +64,8 @@ M.config = function()
     },
 
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
       { name = 'luasnip' },
+      { name = 'nvim_lsp' },
       { name = "buffer" },
       { name = "path" },
     }),
@@ -83,17 +82,29 @@ M.config = function()
         end
       end,
 
-      ["<CR>"] = cmp.mapping({
-        i = cmp.mapping.confirm({ behavior = cmp.mapping.close(), c = cmp.mapping.close() }),
-        c = function(fallback)
-          if cmp.visible() then
-            -- cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-            cmp.complete()
+      ['<CR>'] = cmp.mapping({
+        i = function(fallback)
+          if cmp.visible() and cmp.get_active_entry() then
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
           else
             fallback()
           end
-        end
+        end,
+        s = cmp.mapping.confirm({ select = true }),
+        c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
       }),
+
+      -- ["<CR>"] = cmp.mapping({
+      --   i = cmp.mapping.confirm({ behavior = cmp.mapping.close(), c = cmp.mapping.close() }),
+      --   c = function(fallback)
+      --     if cmp.visible() then
+      --       -- cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+      --       cmp.complete()
+      --     else
+      --       fallback()
+      --     end
+      --   end
+      -- }),
 
       ["<C-e>"] = cmp.mapping {
         i = cmp.mapping.abort(),

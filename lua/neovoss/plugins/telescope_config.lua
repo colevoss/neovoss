@@ -98,6 +98,9 @@ M.config = function()
   vim.keymap.set('n', '<leader>th', builtin.highlights)
   vim.keymap.set('n', '<leader>fm', builtin.marks)
   vim.keymap.set('n', '<leader>fr', builtin.registers)
+
+  -- TEST
+  vim.keymap.set('n', '<leader>d', builtin.diagnostics)
 end
 
 return M
