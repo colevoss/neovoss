@@ -24,6 +24,7 @@ M.setup = function()
     require('neovoss.plugins.illuminate'),
     require('neovoss.plugins.colorizer'),
     require('neovoss.plugins.tailwind-colors'),
+    require('neovoss.plugins.harpoon'),
   })
 end
 

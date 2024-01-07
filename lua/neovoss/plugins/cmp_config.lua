@@ -71,8 +71,8 @@ M.config = function()
     }),
 
     mapping = {
-      ['<C-k>'] = cmp.mapping.select_prev_item(),
-      ['<C-j>'] = cmp.mapping.select_next_item(),
+      -- ['<C-k>'] = cmp.mapping.select_prev_item(),
+      -- ['<C-j>'] = cmp.mapping.select_next_item(),
 
       ['<C-Space>'] = function(fallback)
         if cmp.visible() then
@@ -106,10 +106,10 @@ M.config = function()
       --   end
       -- }),
 
-      ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      },
+      -- ["<C-e>"] = cmp.mapping {
+      --   i = cmp.mapping.abort(),
+      --   c = cmp.mapping.close(),
+      -- },
 
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then

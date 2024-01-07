@@ -5,7 +5,7 @@ M.build = function()
 end
 
 M.config = function()
-  require('nvim-treesitter.configs').setup {
+  require('nvim-treesitter.configs').setup({
     -- context_commentstring = {
     --   enable = true
     -- },
@@ -66,7 +66,7 @@ M.config = function()
         disable = { "yaml" }
       }
     },
-  }
+  })
 end
 
 return M
