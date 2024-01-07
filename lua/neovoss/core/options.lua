@@ -46,6 +46,8 @@ M.setup = function()
   -- vim.opt.fillchars = { eob = " " }
 
   -- vim.opt.colorcolumn = '80'
+  -- :set colorcolumn=81,121,+1,+2
+  vim.opt.colorcolumn = '81,121'
   vim.opt.signcolumn = "yes"
 
   -- vim.opt.spell = true

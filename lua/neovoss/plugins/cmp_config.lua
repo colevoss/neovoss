@@ -6,10 +6,8 @@ local M = {
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lsp',
-    'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
     'onsails/lspkind.nvim',
-    'rafamadriz/friendly-snippets'
   }
 }
 
@@ -50,9 +48,12 @@ local kind_icons = {
 M.config = function()
   local cmp = require('cmp')
   local luasnip = require('luasnip')
-  require("luasnip.loaders.from_vscode").lazy_load()
 
   cmp.setup({
+    preselect = cmp.PreselectMode.None,
+    completion = {
+      completeopt = 'menu,menuone,noinsert'
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
@@ -64,8 +65,9 @@ M.config = function()
     },
 
     sources = cmp.config.sources({
-      { name = 'luasnip' },
       { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    }, {
       { name = "buffer" },
       { name = "path" },
     }),
@@ -84,11 +86,16 @@ M.config = function()
 
       ['<CR>'] = cmp.mapping({
         i = function(fallback)
-          if cmp.visible() and cmp.get_active_entry() then
-            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          if cmp.visible() then
+            cmp.confirm({ select = true })
           else
             fallback()
           end
+          -- if cmp.visible() and cmp.get_active_entry() then
+          --   cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          -- else
+          --   fallback()
+          -- end
         end,
         s = cmp.mapping.confirm({ select = true }),
         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
@@ -149,8 +156,6 @@ M.config = function()
         return vim_item
       end,
     },
-  }, {
-    { name = 'buffer' }
   })
 end
 

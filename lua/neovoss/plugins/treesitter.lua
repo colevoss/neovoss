@@ -19,6 +19,7 @@ M.config = function()
       "gitcommit",
       "gitignore",
 
+      "jsdoc",
       "typescript",
       "javascript",
       "tsx",
@@ -42,6 +43,8 @@ M.config = function()
 
       "glsl",
       "wgsl",
+
+      'vimdoc',
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)

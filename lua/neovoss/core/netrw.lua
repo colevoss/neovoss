@@ -1,6 +1,7 @@
 local M = {}
 
 local group = vim.api.nvim_create_augroup("NeoVoss", { clear = true })
+
 vim.api.nvim_create_autocmd("FileType", {
   group = group,
   pattern = "netrw",

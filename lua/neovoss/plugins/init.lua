@@ -18,6 +18,7 @@ M.setup = function()
     require('neovoss.plugins.fidget'),
     require('neovoss.plugins.comment'),
     require('neovoss.plugins.trouble'),
+    require('neovoss.plugins.luasnip'),
     require('neovoss.plugins.cmp_config'),
     require('neovoss.plugins.heirline'),
     require('neovoss.plugins.conform'),
@@ -25,6 +26,8 @@ M.setup = function()
     require('neovoss.plugins.colorizer'),
     require('neovoss.plugins.tailwind-colors'),
     require('neovoss.plugins.harpoon'),
+    require('neovoss.plugins.copilot'),
+    require('neovoss.plugins.neogen'),
   })
 end
 
