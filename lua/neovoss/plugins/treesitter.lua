@@ -1,18 +1,15 @@
-local M = {}
+local M = { 'nvim-treesitter/nvim-treesitter' }
 
-function M.setup()
-  local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+M.build = function()
+  -- require('nvim-treesitter.install').update({ with_sync = true })
+end
 
-  if not status_ok then
-    vim.notify("Could not load Treesitter configs")
-    return
-  end
-
-  configs.setup {
+M.config = function()
+  require('nvim-treesitter.configs').setup({
     -- context_commentstring = {
     --   enable = true
     -- },
-    auto_install = true,
+    auto_install = false,
     ignore_install = {},
     ensure_installed = {
       "lua",
@@ -22,6 +19,7 @@ function M.setup()
       "gitcommit",
       "gitignore",
 
+      "jsdoc",
       "typescript",
       "javascript",
       "tsx",
@@ -38,13 +36,15 @@ function M.setup()
       "python",
       "ruby",
       "cpp",
-      -- "templ",
+      "templ",
 
       "dockerfile",
       "terraform",
 
       "glsl",
       "wgsl",
+
+      'vimdoc',
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -69,19 +69,7 @@ function M.setup()
         disable = { "yaml" }
       }
     },
-    -- playground = {
-    --   enable = true
-    -- }
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "gnn", -- set to `false` to disable one of the mappings
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
-      },
-    },
-  }
+  })
 end
 
 return M

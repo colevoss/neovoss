@@ -1,15 +1,18 @@
-local utils = require('neovoss.core.utils')
+local M = {
+  'williamboman/mason.nvim',
 
-local M = {}
-
-M.load = {
-  'plugins.lsp.config',
-  'plugins.lsp.mason',
-  'plugins.lsp.conform',
+  dependencies = {
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
 }
 
-function M.setup()
-  utils.load_config(M.load)
+M.lazy = false
+
+M.config = function()
+  require('mason').setup()
+  require('neovoss.plugins.lsp.lspconfig').setup()
+  require('neovoss.plugins.lsp.styles').setup()
 end
 
 return M

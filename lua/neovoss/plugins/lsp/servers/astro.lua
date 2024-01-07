@@ -1,3 +1,0 @@
-local astro = {}
-
-return astro

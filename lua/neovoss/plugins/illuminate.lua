@@ -1,16 +1,18 @@
-local M = {}
+local M = {
+  'RRethy/vim-illuminate'
+}
 
-function M.setup()
-  local status_ok, illuminate = pcall(require, "illuminate")
+M.config = function()
+  local illuminate = require('illuminate')
 
-  if not status_ok then
-    vim.notify("Could not load vim-illuminate")
-    return
-  end
-
-  illuminate.configure {
+  illuminate.configure({
+    providers = {
+      'lsp',
+      'treesitter',
+      'regex'
+    },
     under_cursor = false,
-  }
+  })
 end
 
 return M

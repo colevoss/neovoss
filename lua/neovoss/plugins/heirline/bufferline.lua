@@ -19,7 +19,9 @@ local Right = {
   condition = function(self)
     return self.is_active
   end,
+
   provider = helpers.RightBubbleChar,
+
   hl = function(self)
     return {
       bg = self.none,

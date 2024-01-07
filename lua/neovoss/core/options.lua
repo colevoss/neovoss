@@ -1,12 +1,6 @@
--- Sourced from https://github.com/LunarVim/nvim-basic-ide/blob/master/lua/user/options.lua
-
 local M = {}
 
-function M.setup()
-  -- disable netrw at the very start of your init.lua
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
-
+M.setup = function()
   vim.opt.backup = false            -- creates a backup file
   vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
   vim.opt.cmdheight = 1             -- more space in the neovim command line for displaying messages
@@ -52,6 +46,8 @@ function M.setup()
   -- vim.opt.fillchars = { eob = " " }
 
   -- vim.opt.colorcolumn = '80'
+  -- :set colorcolumn=81,121,+1,+2
+  vim.opt.colorcolumn = '81,121'
   vim.opt.signcolumn = "yes"
 
   -- vim.opt.spell = true

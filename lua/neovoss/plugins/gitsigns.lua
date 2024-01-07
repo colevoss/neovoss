@@ -1,13 +1,7 @@
-local M = {}
+local M = { 'lewis6991/gitsigns.nvim' }
 
-function M.setup()
-  local status_ok, gitsigns = pcall(require, "gitsigns")
-
-  if not status_ok then
-    vim.notify("Could not load gitsigns")
-    return
-  end
-
+M.config = function()
+  local gitsigns = require('gitsigns')
   gitsigns.setup {
     signs                        = {
       add          = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -58,14 +52,14 @@ function M.setup()
         vim.keymap.set(mode, l, r, opts)
       end
 
-      map('n', '<leader>hb', function()
-        gs.blame_line({ full = true })
-      end)
-      map('n', '<leader>tb', gs.toggle_current_line_blame)
-      map('n', '<leader>hd', gs.diffthis)
-      map('n', '<leader>hD', function()
-        gs.diffthis('~')
-      end)
+      -- map('n', '<leader>hb', function()
+      --   gs.blame_line({ full = true })
+      -- end)
+      -- map('n', '<leader>tb', gs.toggle_current_line_blame)
+      -- map('n', '<leader>hd', gs.diffthis)
+      -- map('n', '<leader>hD', function()
+      --   gs.diffthis('~')
+      -- end)
     end
   }
 end

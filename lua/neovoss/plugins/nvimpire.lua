@@ -1,12 +1,12 @@
-local M = {}
+local M = {
+  'colevoss/nvimpire'
+}
 
-function M.setup()
-  local status_ok, nvimpire = pcall(require, 'nvimpire')
+M.lazy = false
+M.priority = 1000
 
-  if not status_ok then
-    vim.notify('Could not load nvimpire')
-    return
-  end
+M.config = function()
+  local nvimpire = require('nvimpire')
 
   local colorscheme = 'nvimpire'
 

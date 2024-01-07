@@ -1,17 +1,18 @@
-local M = {}
+local M = {
+  'stevearc/conform.nvim',
+}
 
 local js_formatters = {
   { "prettierd", "prettier" },
   { "eslint_d",  "eslint" },
 }
 
-function M.setup()
-  local conform_ok, conform = pcall(require, 'conform')
+local lua_formatters = {
+  'stylua'
+}
 
-  if not conform_ok then
-    vim.notify("Could not load conform")
-    return
-  end
+M.config = function()
+  local conform = require('conform')
 
   conform.setup({
     formatters_by_ft = {
@@ -20,10 +21,12 @@ function M.setup()
       typescript = js_formatters,
       typescriptreact = js_formatters,
       graphql = js_formatters,
+
+      lua = lua_formatters,
     },
 
     format_on_save = {
-      lsp_fallback = true,
+      lsp_fallback = true
     }
   })
 end

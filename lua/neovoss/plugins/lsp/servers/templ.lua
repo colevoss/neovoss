@@ -6,5 +6,4 @@ vim.filetype.add({
   },
 })
 
-
 return templ

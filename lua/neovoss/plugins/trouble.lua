@@ -1,23 +1,26 @@
-local nmap = require('neovoss.core.utils').nmap
+local M = {
+  'folke/trouble.nvim',
+  dependencies = {
+    "nvim-tree/nvim-web-devicons"
+  },
+}
 
-local M = {}
+M.config = function()
+  local trouble = require('trouble')
 
-function M.setup()
-  local status_ok, trouble = pcall(require, "trouble")
+  trouble.setup()
 
-  if not status_ok then
-    vim.notify("Could not load trouble")
-    return
-  end
+  vim.keymap.set('n', '<leader>tt', function()
+    trouble.toggle('workspace_diagnostics')
+  end)
 
-  trouble.setup {}
+  vim.keymap.set('n', '<leader>tn', function()
+    trouble.next({ skip_groups = true, jump = true })
+  end)
 
-  nmap("<leader>xx", "<cmd>TroubleToggle<CR>", "Trouble: Toggle", true)
-  nmap("<leader>xw", "<cmd>Trouble workspace_diagnostics<CR>", "Trouble: Workspace Diagnostics", true)
-  nmap("<leader>xf", "<cmd>Trouble document_diagnostics<CR>", "Trouble: Document Diagnostics", true)
-  nmap("<leader>xq", "<cmd>Trouble quickfix<CR>", "Trouble: Quick Fix", true)
-  nmap("<leader>xr", "<cmd>Trouble lsp_references<CR>", "Trouble: Open LSP References", true)
-  nmap("<leader>xd", "<cmd>Trouble lsp_definitions<CR>", "Trouble: Open Defitions", true)
+  vim.keymap.set('n', '<leader>tp', function()
+    trouble.previous({ skip_groups = true, jump = true })
+  end)
 end
 
 return M
