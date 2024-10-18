@@ -26,7 +26,7 @@ M.setup = function()
     require('neovoss.plugins.colorizer'),
     require('neovoss.plugins.tailwind-colors'),
     require('neovoss.plugins.harpoon'),
-    require('neovoss.plugins.copilot'),
+    -- require('neovoss.plugins.copilot'),
     require('neovoss.plugins.neogen'),
   })
 end

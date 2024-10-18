@@ -27,6 +27,8 @@ M.config = function()
       "graphql",
       "css",
 
+      "elixir",
+
       "toml",
       "json",
       "yaml",
@@ -45,6 +47,10 @@ M.config = function()
       "wgsl",
 
       'vimdoc',
+
+      'hcl',
+
+      'svelte'
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)

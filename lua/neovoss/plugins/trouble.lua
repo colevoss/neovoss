@@ -10,8 +10,16 @@ M.config = function()
 
   trouble.setup()
 
+  vim.keymap.set('n', '[d', function()
+    trouble.prev({ jump = true, mode = 'diagnostics' })
+  end)
+
+  vim.keymap.set('n', ']d', function()
+    trouble.next({ jump = true, mode = 'diagnostics' })
+  end)
+
   vim.keymap.set('n', '<leader>tt', function()
-    trouble.toggle('workspace_diagnostics')
+    trouble.toggle('diagnostics')
   end)
 
   vim.keymap.set('n', '<leader>tn', function()

@@ -42,7 +42,8 @@ local function setup_servers()
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(servers)
+    ensure_installed = vim.tbl_keys(servers),
+    automatic_installation = { exclude = { "clangd" } }
   }
 
   local base = {

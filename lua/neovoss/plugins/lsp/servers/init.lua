@@ -5,10 +5,12 @@ local M = {
   html = require('neovoss.plugins.lsp.servers.html'),
   gopls = {},
   rust_analyzer = {},
-  tsserver = {},
+  ts_ls = {},
   bashls = {},
   dockerls = {},
   pyright = {},
+  elixirls = {},
+  clangd = {},
 }
 
 return M

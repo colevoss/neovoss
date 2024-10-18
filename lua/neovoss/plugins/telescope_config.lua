@@ -13,8 +13,8 @@ M.config = function()
   local actions = require('telescope.actions')
   local builtin = require('telescope.builtin')
   local themes = require('telescope.themes')
-  local trouble = require("trouble.providers.telescope")
 
+  local open_with_trouble = require("trouble.sources.telescope").open
 
   telescope.setup({
     defaults = {
@@ -28,13 +28,13 @@ M.config = function()
       },
       mappings = {
         n = {
-          ["<c-t>"] = trouble.open_with_trouble,
+          ["<c-t>"] = open_with_trouble,
           ['<c-d>'] = actions.delete_buffer
         },
         i = {
           -- ["<esc>"] = actions.close,
           ['<C-u>'] = false,
-          ["<c-t>"] = trouble.open_with_trouble,
+          ["<c-t>"] = open_with_trouble,
           ['<c-d>'] = actions.delete_buffer
         }
       }
@@ -73,6 +73,10 @@ M.config = function()
     builtin.buffers(themes.get_ivy())
   end
 
+  local diagnostics = function()
+    builtin.diagnostics(themes.get_ivy())
+  end
+
   local live_grep = function()
     builtin.live_grep()
   end
@@ -96,11 +100,11 @@ M.config = function()
   -- VIM
   vim.keymap.set('n', '<leader>tk', builtin.keymaps)
   vim.keymap.set('n', '<leader>th', builtin.highlights)
-  vim.keymap.set('n', '<leader>fm', builtin.marks)
+  vim.keymap.set('n', '<leader>tm', builtin.marks)
   vim.keymap.set('n', '<leader>fr', builtin.registers)
 
   -- TEST
-  vim.keymap.set('n', '<leader>d', builtin.diagnostics)
+  vim.keymap.set('n', '<leader>d', diagnostics)
 end
 
 return M

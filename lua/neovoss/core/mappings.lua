@@ -13,7 +13,7 @@ M.setup = function()
     silent = false
   })
 
-  vim.keymap.set("n", ";", ":", {
+  vim.keymap.set("n", ":", ";", {
     silent = false
   })
 
@@ -43,6 +43,9 @@ M.setup = function()
 
   vim.keymap.set("x", "<leader>p", "\"_dp")
   vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww sessionizer<CR>")
+
+  vim.keymap.set("n", "<leader>cn", "<cmd>silent cn<CR>")
+  vim.keymap.set("n", "<leader>cp", "<cmd>silent cp<CR>")
 end
 
 return M

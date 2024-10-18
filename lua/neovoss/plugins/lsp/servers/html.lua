@@ -1,5 +1,5 @@
 local M = {
-  -- filetypes = { 'html', 'templ' }
+  filetypes = { 'html', 'templ' }
 }
 
 return M

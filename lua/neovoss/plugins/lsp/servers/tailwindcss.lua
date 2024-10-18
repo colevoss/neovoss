@@ -1,6 +1,6 @@
 local function setup_tailwind(base)
   return {
-    filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+    filetypes = { "templ", "astro", "javascript", "typescript", "react", "svelte", "typescriptreact" },
     init_options = { userLanguages = { templ = "html" } },
 
     capabilities = base.capabilities,
