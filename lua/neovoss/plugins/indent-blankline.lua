@@ -1,31 +1,29 @@
-local M = { 'lukas-reineke/indent-blankline.nvim' }
-
 local highlight = {
-  "IndentBlanklineIndent1",
-  "IndentBlanklineIndent2",
-  "IndentBlanklineIndent3",
-  "IndentBlanklineIndent4",
-  "IndentBlanklineIndent5",
-  "IndentBlanklineIndent6",
+	"IndentBlanklineIndent1",
+	"IndentBlanklineIndent2",
+	"IndentBlanklineIndent3",
+	"IndentBlanklineIndent4",
+	"IndentBlanklineIndent5",
+	"IndentBlanklineIndent6",
 }
 
-M.config = function()
-  vim.opt.list = true
+return {
+	"lukas-reineke/indent-blankline.nvim",
 
-  require('ibl').setup {
-    indent = {
-      tab_char = ""
-      -- highlight = highlight,
-    },
-    whitespace = {
-      -- highlight = highlight,
-      remove_blankline_trail = false,
-    },
-    scope = {
-      enabled = true,
-      highlight = highlight
-    },
-  }
-end
+	main = "ibl",
 
-return M
+	--@module "ibl"
+	--@type ibl.config
+	opts = {
+		indent = {
+			tab_char = "",
+		},
+		whitespace = {
+			remove_blankline_trail = false,
+		},
+		scope = {
+			enabled = true,
+			highlight = highlight,
+		},
+	},
+}

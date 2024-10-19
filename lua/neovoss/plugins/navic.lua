@@ -1,46 +1,37 @@
-local M = {
-  'SmiteshP/nvim-navic'
+return {
+	"SmiteshP/nvim-navic",
+	opts = {
+		highlight = true,
+		icons = {
+			File = "󰈙 ",
+			Module = " ",
+			Namespace = "󰌗 ",
+			Package = " ",
+			Class = "󰌗 ",
+			Method = "󰆧 ",
+			Property = " ",
+			Field = " ",
+			Constructor = " ",
+			Enum = "󰕘",
+			Interface = "󰕘",
+			Function = "󰊕 ",
+			Variable = "󰆧 ",
+			Constant = "󰏿 ",
+			String = "󰀬 ",
+			Number = "󰎠 ",
+			Boolean = "◩ ",
+			Array = "󰅪 ",
+			Object = "󰅩 ",
+			Key = "󰌋 ",
+			Null = "󰟢 ",
+			EnumMember = " ",
+			Struct = "󰌗 ",
+			Event = " ",
+			Operator = "󰆕 ",
+			TypeParameter = "󰊄 ",
+		},
+		-- separator = " > ",
+		separator = "  ",
+		depth_limit = 0,
+	},
 }
-
-local icons = {
-  File          = "󰈙 ",
-  Module        = " ",
-  Namespace     = "󰌗 ",
-  Package       = " ",
-  Class         = "󰌗 ",
-  Method        = "󰆧 ",
-  Property      = " ",
-  Field         = " ",
-  Constructor   = " ",
-  Enum          = "󰕘",
-  Interface     = "󰕘",
-  Function      = "󰊕 ",
-  Variable      = "󰆧 ",
-  Constant      = "󰏿 ",
-  String        = "󰀬 ",
-  Number        = "󰎠 ",
-  Boolean       = "◩ ",
-  Array         = "󰅪 ",
-  Object        = "󰅩 ",
-  Key           = "󰌋 ",
-  Null          = "󰟢 ",
-  EnumMember    = " ",
-  Struct        = "󰌗 ",
-  Event         = " ",
-  Operator      = "󰆕 ",
-  TypeParameter = "󰊄 ",
-}
-
-M.config = function()
-  local navic = require('nvim-navic')
-
-  navic.setup {
-    highlight = true,
-    icons = icons,
-    -- separator = " > ",
-    separator = "  ",
-    depth_limit = 0,
-  }
-end
-
-return M

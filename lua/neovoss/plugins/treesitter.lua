@@ -1,67 +1,13 @@
-local M = { 'nvim-treesitter/nvim-treesitter' }
+return {
+  "nvim-treesitter/nvim-treesitter",
 
-M.build = function()
-  -- require('nvim-treesitter.install').update({ with_sync = true })
-end
+  build = ":TSUpdate",
 
-M.config = function()
-  require('nvim-treesitter.configs').setup({
-    -- context_commentstring = {
-    --   enable = true
-    -- },
-    auto_install = false,
-    ignore_install = {},
-    ensure_installed = {
-      "lua",
-      "bash",
-      "markdown",
-
-      "gitcommit",
-      "gitignore",
-
-      "jsdoc",
-      "typescript",
-      "javascript",
-      "tsx",
-      "html",
-      "graphql",
-      "css",
-
-      "elixir",
-
-      "toml",
-      "json",
-      "yaml",
-
-      "go",
-      "rust",
-      "python",
-      "ruby",
-      "cpp",
-      "templ",
-
-      "dockerfile",
-      "terraform",
-
-      "glsl",
-      "wgsl",
-
-      'vimdoc',
-
-      'hcl',
-
-      'svelte'
-    },
-
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
+  opts = {
+    auto_install = true,
 
     highlight = {
       enable = true,
-
-      disable = {
-        ""
-      },
 
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -69,13 +15,52 @@ M.config = function()
       -- Instead of true it can also be a list of languages
       -- additional_vim_regex_highlighting = false,
       additional_vim_regex_highlighting = false,
-
-      indent = {
-        enable = true,
-        disable = { "yaml" }
-      }
     },
-  })
-end
 
-return M
+    disable = function(lang, buf)
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stats, vim.api.nvim_buf_get_name(buf))
+
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
+    end,
+
+    ensure_installed = {
+      "bash",
+      "cpp",
+      "css",
+      "dockerfile",
+      "elixir",
+      "gitcommit",
+      "gitignore",
+      "glsl",
+      "go",
+      "graphql",
+      "html",
+      "javascript",
+      "jsdoc",
+      "json",
+      "lua",
+      "markdown",
+      "python",
+      "ruby",
+      "rust",
+      "templ",
+      "terraform",
+      "toml",
+      "tsx",
+      "typescript",
+      "wgsl",
+      "yaml",
+      "hcl",
+      "svelte",
+      "vimdoc",
+      "zig",
+    },
+  },
+
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end
+}

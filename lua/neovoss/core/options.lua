@@ -7,7 +7,6 @@ M.setup = function()
   vim.opt.conceallevel = 0          -- so that `` is visible in markdown files
   vim.opt.fileencoding = "utf-8"    -- the encoding written to a file
 
-  -- vim.opt.hlsearch = false -- highlight all matches on previous search pattern
   vim.opt.hlsearch = true      -- highlight all matches on previous search pattern
   vim.opt.incsearch = true     -- highlight all matches on previous search pattern
 
@@ -21,9 +20,7 @@ M.setup = function()
   vim.opt.splitbelow = true    -- force all horizontal splits to go below current window
   vim.opt.splitright = true    -- force all vertical splits to go to the right of current window
   vim.opt.swapfile = false     -- creates a swapfile
-  -- vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
   vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
-  -- vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
   vim.opt.timeoutlen = 500     -- time to wait for a mapped sequence to complete (in milliseconds)
   vim.opt.undofile = true      -- enable persistent undo
   vim.opt.updatetime = 50      -- faster completion (4000ms default)
@@ -42,15 +39,8 @@ M.setup = function()
   vim.opt.wrap = false       -- display lines as one long line
   vim.opt.scrolloff = 8      -- is one of my fav
   vim.opt.sidescrolloff = 8
-  vim.opt.fillchars = { eob = " ", vert = "▕" }
-  -- vim.opt.fillchars = { eob = " " }
-
-  -- vim.opt.colorcolumn = '80'
-  -- :set colorcolumn=81,121,+1,+2
-  vim.opt.colorcolumn = '81,121'
+  -- vim.opt.colorcolumn = '81,121'
   vim.opt.signcolumn = "yes"
-
-  -- vim.opt.spell = true
 
   vim.g.linespace = 10
 

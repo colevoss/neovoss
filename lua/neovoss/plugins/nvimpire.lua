@@ -1,24 +1,11 @@
-local M = {
-  'colevoss/nvimpire'
-}
+return {
+  "colevoss/nvimpire",
 
-M.lazy = false
-M.priority = 1000
+  priority = 1000,
 
-M.config = function()
-  local nvimpire = require('nvimpire')
+  config = function()
+    require("nvimpire").setup({ transparent = true })
 
-  local colorscheme = 'nvimpire'
-
-  local colorscheme_status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-  if not colorscheme_status_ok then
-    vim.notify("could not set color scheme to nvimpire")
-    return
+    vim.cmd([[colorscheme nvimpire]])
   end
-
-  nvimpire.setup {
-    transparent = true
-  }
-end
-
-return M
+}
