@@ -1,11 +1,12 @@
 return {
-  "colevoss/nvimpire",
+	"colevoss/nvimpire",
+	-- dir = "~/codes/neovim/nvimpire",
 
-  priority = 1000,
+	priority = 1000,
 
-  config = function()
-    require("nvimpire").setup({ transparent = true })
+	config = function()
+		require("nvimpire").setup({ transparent = true })
 
-    vim.cmd([[colorscheme nvimpire]])
-  end
+		vim.cmd([[colorscheme nvimpire]])
+	end,
 }
