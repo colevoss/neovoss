@@ -94,9 +94,13 @@ return {
 					local telescope = require("telescope.builtin")
 
 					-- TELESCOPE
-					vim.keymap.set("n", "gd", telescope.lsp_definitions, { buffer = event.buf, desc = "LSP: Go to definition" })
-					vim.keymap.set("n", "gr", telescope.lsp_references, { buffer = event.buf, desc = "LSP: Go to references" })
+					-- vim.keymap.set("n", "gd", telescope.lsp_definitions, { buffer = event.buf, desc = "LSP: Go to definition" })
+					-- vim.keymap.set("n", "gr", telescope.lsp_references, { buffer = event.buf, desc = "LSP: Go to references" })
 					vim.keymap.set("n", "gi", telescope.lsp_implementations, { buffer = event.buf, desc = "LSP: Go to implementations" })
+
+					-- QF
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "LSP: Go to definition" })
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: Go to references" })
 
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover" })
 					vim.keymap.set("n", "<C-K>", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature help" })
