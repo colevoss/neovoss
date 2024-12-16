@@ -34,6 +34,8 @@ M.setup = function()
 
 	vim.keymap.set("x", "<leader>p", '"_dp')
 	vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww sessionizer<CR>")
+	vim.keymap.set("n", "<leader>r", "<cmd>silent !tmux-actionizer<CR>")
+	vim.keymap.set("n", "<leader>t", "<cmd>silent !tmux-actionizer 1<CR>")
 
 	-- quick fix list
 	-- vim.keymap.set("n", "<leader>cn", "<cmd>silent cn<CR>")
